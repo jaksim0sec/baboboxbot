@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>바보상자 CREW • Discord 봇</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="https://i.ibb.co/80mBhw1/003-5.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    div,
+    span {
+      transition: all 0.2s ease;
+    }
+
+    #header {
+      display: flex;
+      width: 95%;
+      height: 70px;
+      margin: 1% auto; /* 중앙 정렬을 위해 auto 마진 사용 */
+      position: relative;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #logo {
+      display: flex;
+      width: 70px;
+      height: 70px;
+      margin-right: auto;
+    }
+
+    #menu {
+      display: flex;
+      width: auto; /* 메뉴의 너비를 자동으로 설정 */
+      height: 70px;
+      margin-left: auto;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #m-header-menubutton {
+      display: none; /* 기본적으로 숨김 */
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .header-button-cover {
+      margin: 0 5px; /* 버튼 사이의 간격을 설정 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      height: 40px;
+      width: 100px;
+      border-radius: 10px;
+      border: none;
+      transition: all 0.7s ease;
+      font-size: 16px;
+    }
+
+    .button-low {
+      background-color: white;
+      color: #272727;
+    }
+
+    .button-mid {
+      background-color: #272727;
+      color: white;
+    }
+
+    .button-low:hover {
+      box-shadow: inset 0px 0px 10px rgba(216, 216, 216, 0.5);
+      border: 3px solid rgba(235, 235, 235, 0.7);
+      border-radius: 20px;
+    }
+
+    .button-mid:hover {
+      border: 3px solid rgba(66, 66, 66, 0.7);
+      background-color: rgba(96, 96, 96, 0.8);
+      border-radius: 15px;
+    }
+
+    #m-header-menu {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      display: none; /* 기본적으로 숨김 */
+      justify-content: center;
+      align-items: center;
+    }
+
+    #m-header-menu-cover {
+      position: absolute;
+      width: 130px;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: white;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 0px 10px gray;
+      opacity: 1;
+      right: 10px;
+      top:10px;
+    }
+
+    .header-button-cover {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      #header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #menu {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        display: none; 
+      }
+
+      #m-header-menubutton {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <span id="logo"><img src="https://ifh.cc/g/s2VbZZ.png" width="70px" height="70px" alt="Logo"></span><!--logo-->
+    <span id="menu">
+      <span class="header-button-cover"><button class="button-low" onclick="movePage('/aboutbot.html')"><div>봇소개</div></button></span>
+      <span class="header-button-cover"><button class="button-low" onclick="movePage('/howtouse.html')"><div>명령어</div></button></span>
+      <span class="header-button-cover"><button class="button-low" onclick="movePage('/server.html')"><div>소통</div></button></span>
+      <span class="header-button-cover"><button class="button-mid" onclick="movePage('/server.html')"><div>+ 사용하기</div></button></span>
+    </span><!--menu-->
+    <span id="m-header-menubutton" onclick="mobileHeader();"><img src="https://ifh.cc/g/NTSB1R.png" width="30px" height="30px" alt="Menu"></span>
+  </div><!--header-->
+
+  <div id="m-header-menu" onclick="mobileHeader();">
+    <div id="m-header-menu-cover">
+      <div class="header-button-cover"><button class="button-low" onclick="movePage('/aboutbot.html')"><div>봇소개</div></button></div>
+      <div class="header-button-cover"><button class="button-low" onclick="movePage('/howtouse.html')"><div>명령어</div></button></div>
+      <div class="header-button-cover"><button class="button-low" onclick="movePage('/server.html')"><div>소통</div></button></div>
+      <div class="header-button-cover"><button class="button-mid" onclick="movePage('/server.html')"><div>+ 사용하기</div></button></div>
+    </div>
+  </div>
+
+  <hr style="width: 95%; border: 0.5px solid #7d7d7d;">
+
+  <div id="bodyer">
+    <center>
+      <div style="width: 90%; height: 300px; border: 1px solid black; border-radius: 20px; margin-top: 20px;">
+        <div style="width: 90%; height: 90%; border: 1px solid black; border-radius: 20px;"></div>
+      </div>
+    </center>
+  </div>
+
+  <script>
+    function movePage(page) {
+      window.location.href = page;
+    }
+
+    function getHTML(name) {
+      return document.querySelector(name);
+    }
+
+    function mobileHeader() {
+      const menu = getHTML('#m-header-menu');
+      if (menu.style.display === 'flex') {
+        menu.style.opacity = '0';
+        setTimeout(() => {
+          menu.style.display = 'none';
+        }, 300);
+      } else {
+        menu.style.display = 'flex';
+        setTimeout(() => {
+          menu.style.opacity = '1';
+        }, 300);
+      }
+    }
+
+    function checkScreenSize() {
+      const menuButton = document.getElementById('m-header-menubutton');
+      const menu = document.getElementById('menu');
+      if (window.innerWidth <= 768) {
+        menuButton.style.display = 'flex';
+        menu.style.display = 'none';
+      } else {
+        menuButton.style.display = 'none';
+        menu.style.display = 'flex';
+        document.getElementById('m-header-menu').style.display = 'none';
+      }
+    }
+
+    window.addEventListener('resize', checkScreenSize);
+    window.addEventListener('load', checkScreenSize);
+  </script>
+</body>
+
+</html>
