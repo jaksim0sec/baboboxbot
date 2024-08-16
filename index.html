@@ -7,7 +7,15 @@
   <title>바보상자 CREW • Discord 봇</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="https://i.ibb.co/80mBhw1/003-5.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&display=swap" rel="stylesheet">
   <style>
+    .themeFont {
+      font-family: "IBM Plex Sans KR", sans-serif;
+      font-weight: bold;
+      font-style: normal;
+    }
     body {
       margin: 0;
       padding: 0;
@@ -99,6 +107,7 @@
       display: none; /* 기본적으로 숨김 */
       justify-content: center;
       align-items: center;
+      backdrop-filter: blur(4px);
     }
 
     #m-header-menu-cover {
@@ -138,7 +147,29 @@
 
       #m-header-menubutton {
         display: flex;
+        padding:7px;
       }
+    }
+
+    #m-header-menubutton:hover {
+      box-shadow: inset 0px 0px 10px rgba(216, 216, 216, 1);
+      border-radius: 20px;
+    }
+    .highlight
+    {
+      font-weight: 400px;
+      color:#FF9934;
+    }
+
+    .card
+    {
+      /*position: absolute;*/
+      right: 2%;
+    }
+
+    .card:nth-child(odd)
+    {
+      left: 2%;
     }
   </style>
 </head>
@@ -168,8 +199,18 @@
 
   <div id="bodyer">
     <center>
-      <div style="width: 90%; height: 300px; border: 1px solid black; border-radius: 20px; margin-top: 20px;">
-        <div style="width: 90%; height: 90%; border: 1px solid black; border-radius: 20px;"></div>
+      <div style="width: 90%; min-height: 300px; border-radius: 20px; margin-top: 30px;box-shadow: inset 0px 0px 10px lightgrey;padding: 8px;" class="card">
+          <div class="themeFont" style = "font-size: 25px;">
+            <span class = "highlight">바보상자</span>와 서버를 다채롭게!</div>
+          <div style = "display: flex; width: 90%;height: 230px;box-shadow: inset 0px 0px 10px lightgrey;margin-top:10px;
+            border-radius: 20px;"></div>
+      </div>
+
+      <div style="width: 90%; min-height: 300px; border-radius: 20px; margin-top: 30px;box-shadow: inset 0px 0px 10px lightgrey;padding: 8px;" class="card">
+          <div class="themeFont" style = "font-size: 25px;">
+            누가 만들었나요?
+          <div style = "display: flex; width: 90%;height: 230px;box-shadow: inset 0px 0px 10px lightgrey;margin-top:10px;
+            border-radius: 20px;"></div>
       </div>
     </center>
   </div>
